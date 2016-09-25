@@ -1,23 +1,23 @@
 $colour-main-background: #444;
 
 $col-colours: (
-  'eat_drink': #00796B,
-  'sport': #43A047,
-  'culture': #8BC34A,
-  'fiesta': #FFEB3B,
-  'accommodation': #C62828,
-  'cinema': #FF4081,
-  'transport': #E040FB,
-  'nature': #3F51B5
+  'eat_drink': #C62828,
+  'sport': #FF4081,
+  'culture': #FFEB3B,
+  'fiesta': #8BC34A,
+  'accommodation': #43A047,
+  'cinema': #00796B,
+  'transport': #3F51B5,
+  'nature': #E040FB
 );
 
 $col-darken: (
-  'eat_drink': 10%,
-  'sport': 20%,
-  'culture': 25%,
-  'fiesta': 32%,
+  'eat_drink': 20%,
+  'sport': 30%,
+  'culture': 32%,
+  'fiesta': 25%,
   'accommodation': 20%,
-  'cinema': 30%,
-  'transport': 35%,
-  'nature': 20%
+  'cinema': 10%,
+  'transport': 20%,
+  'nature': 32%
 );
