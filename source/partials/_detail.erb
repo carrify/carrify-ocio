@@ -1,0 +1,23 @@
+<div class="detail detail-{{category}}" style="background-image:url('{{content.image}}');">
+    <div class="detail-shadow">
+        <a href="javascript:void(0);" class="detail-close bc-{{category}}" data-link-close data-category="{{category}}">
+            <i class="material-icons">close</i>
+        </a>
+        <div class="map" id="map"></div>
+        <section class="detail-content">
+            {{{content.content.large}}}
+        </section>
+        <footer class="detail-footer">
+            <div class="detail-footer-wrapper bcs-{{category}}">
+                <div class="detail-footer-description">
+                  <p class="detail-icon">
+                    <i class="material-icons">{{getCategoryProperty category 'icon'}}</i>
+                    <span class="detail-icon-text">{{getCategoryProperty category 'description'}}</span>
+                  </p>
+                  <p>Otras ofertas interesantes</p>
+                </div>
+            </div>
+        </footer>
+        <div class="detail-advert-list" id="detail_carousel_container" data-carousel="{{category}}" data-template="detail_carousel"></div>
+    </div>
+</div>

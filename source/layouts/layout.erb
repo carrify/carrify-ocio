@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+
+    <!-- Use title if it's in the page YAML frontmatter -->
+    <title><%= current_page.data.title || "Middleman" %></title>
+
+    <link href="https://fonts.googleapis.com/css?family=Heebo:100,200,300,400|League+Script|Work+Sans:100" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <%= stylesheet_link_tag :site %>
+  </head>
+
+  <body class="<%= page_classes %>">
+    <%= yield %>
+    <%= javascript_include_tag :all %>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYua4VwN59VVzoE_Z0Do1O4W6bHyrZ8xY" async defer></script>
+  </body>
+</html>

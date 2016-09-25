@@ -1,0 +1,155 @@
+.detail {
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.detail-shadow {
+  width: 100%;
+  position: relative;
+}
+
+.detail-close {
+  display: inline-block;
+  width: 70px;
+  height: 70px;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-decoration: none;
+  z-index: 500;
+
+  i {
+    font-size: 70px;
+    line-height: 70px;
+  }
+}
+
+.detail-icon {
+  text-decoration: none;
+  line-height: 70px;
+  margin: 0;
+  padding: 0;
+  color: #aaa;
+  text-transform: lowercase;
+
+  i {
+    font-size: 40px;
+    vertical-align: middle;
+    margin-right: 10px;
+  }
+
+  .detail-icon-text {
+    font-size: 30px;
+    font-weight: 100;
+    position: relative;
+    top: 5px;
+  }
+}
+
+.detail-content {
+  padding: 90px 20px 20px 20px;
+  color: #fff;
+  font-weight: 100;
+
+  .line-big {
+    font-size: 120px;
+    font-weight: 300;
+    line-height: 120px;
+    margin: 20px 0;
+  }
+
+  .line-medium {
+    font-size: 40px;
+    line-height: 40px;
+    margin: 5px 0;
+  }
+}
+
+.detail-footer {
+  width: 100%;
+  text-transform: lowercase;
+  font-weight: 100;
+  text-align: center;
+  background-color: rgba(#333, 0.5);
+}
+
+.detail-footer-wrapper {
+  width: 100%;
+}
+
+.detail-footer-carousel {
+  width: calc(100% - 120px);
+  height: 120px;
+  margin-left: 120px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.detail-footer-description {
+  font-size: 20px;
+  font-weight: 300;
+  opacity: 0.8;
+  text-align: left;
+  padding: 0 15px 15px 15px;
+
+  p {
+    margin: 0;
+  }
+}
+
+.detail-adverts {
+  position: relative;
+  width: 100%;
+  height: 120px;
+  z-index: 1;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-transition-property: -webkit-transform;
+  -moz-transition-property: -moz-transform;
+  -o-transition-property: -o-transform;
+  -ms-transition-property: -ms-transform;
+  transition-property: transform;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+.detail-advert {
+  -webkit-flex-shrink: 0;
+  -ms-flex: 0 0 auto;
+  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
+
+  .detail-advert-link {
+    position: relative;
+    display: block;
+    text-decoration: none;
+
+    .detail-advert-link-image {
+      display: block;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin: 0 auto 5px auto;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+    }
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.detail-advert-list {
+  overflow: hidden;
+}

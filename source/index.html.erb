@@ -1,0 +1,47 @@
+---
+title: "carrify.tech: OCIO"
+---
+
+<div class="body-background">
+  <div class="body-wrapper">
+    <h1>
+      <img alt="" class="logo-ocio" src="images/ocio.svg"/>
+      <strong class="motto">Encuentra tu plan</strong>
+    </h1>
+    <section class="content-wrapper">
+      <div class="mobile-background"></div>
+      <div class="app-header">
+        <i class="material-icons app-menu-link">menu</i>
+        <img alt="OCIO" src="images/logo.svg" class="app-logo" />
+        <i class="material-icons app-user-link">person</i>
+        <i class="material-icons app-search-link">search</i>
+      </div>
+      <div id="template_container" class="content"></div>
+    </section>
+    <footer class="copyright">
+      <img alt="" class="logo" src="images/carrify.svg"/> 2016
+    </footer>
+  </div>
+</div>
+
+<script id="home_template" type="text/x-handlebars-template">
+    <%= partial('partials/home') %>
+</script>
+
+<script id="list_template" type="text/x-handlebars-template">
+    <%= partial('partials/list') %>
+</script>
+
+<script id="list_carousel_template" type="text/x-handlebars-template">
+    <%= partial('partials/list_carousel') %>
+</script>
+
+<script id="detail_template" type="text/x-handlebars-template">
+    <%= partial('partials/detail', :locals => {
+          :image => '../images/ads/juice_2.jpg'
+    }) %>
+</script>
+
+<script id="detail_carousel_template" type="text/x-handlebars-template">
+    <%= partial('partials/detail_carousel') %>
+</script>

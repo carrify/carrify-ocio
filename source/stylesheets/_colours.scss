@@ -1,0 +1,52 @@
+/* Background colour */
+
+.bc-none {
+  background-color: #ccc;
+}
+
+@each $name, $colour in $col-colours {
+  .bc-#{$name} {
+    background-color: $colour;
+    color: darken($colour, map-get($col-darken, $name));
+  }
+
+  a.bc-#{$name}:hover {
+    background-color: darken($colour, map-get($col-darken, $name));
+    color: $colour;
+  }
+}
+
+/* Background shadow */
+
+@each $name, $colour in $col-colours {
+  .bcs-#{$name} {
+    background-color: rgba(darken($colour, 50%), 0.4);
+    color: lighten($colour, 30%);
+  }
+}
+
+/* Background dark shadow */
+
+.bds-default {
+  background-color: rgba(#444, 0.8);
+  color: #aaa;
+}
+
+@each $name, $colour in $col-colours {
+  .bds-#{$name} {
+    background-color: rgba(darken($colour, map-get($col-darken, $name)), 0.8);
+    color: lighten($colour, 30%);
+  }
+}
+
+/* Colour */
+
+@each $name, $colour in $col-colours {
+  .c-#{$name} {
+    color: $colour;
+  }
+
+  .cl-#{$name} {
+    color: lighten($colour, 30%);
+  }
+}

@@ -1,0 +1,18 @@
+<div data-is-home>
+  <div class="row fix-height">
+    {{{getAd 'home' 0 'col-50 advert'}}}
+    {{{getAd 'home' 1 'col-50 advert'}}}
+  </div>
+  <div class="row map" id="map"></div>
+  <div class="row">
+      {{#each categories}}
+      <a href="javascript:void(0);" class="col-100 bc-{{@key}}" data-link-list="{{@key}}">
+          <span class="column-icon">
+            <i class="material-icons">{{icon}}</i>
+          </span>
+          <span class="column-text">{{description}}</span>
+          <i class="material-icons arrow">keyboard_arrow_right</i>
+      </a>
+      {{/each}}
+  </div>
+</div>

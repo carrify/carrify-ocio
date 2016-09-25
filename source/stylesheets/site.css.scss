@@ -1,0 +1,289 @@
+@charset "utf-8";
+@import "normalize";
+@import "bistro";
+@import "constants";
+@import "colours";
+@import "basic";
+@import "detail";
+@import "scrollbar";
+@import "ads";
+
+$mobile-width: 320px;
+$mobile-height: 568px;
+$mobile-bar-height: 60px;
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-image: url('../images/background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  font-family: 'Heebo', sans-serif;
+}
+
+.mobile-background {
+  $width-inc: 26px;
+  $height-inc: 85px;
+
+  position: absolute;
+  top: -1 * $height-inc;
+  left: 50%;
+  z-index: 0;
+  background-image: url('../images/phone.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: $mobile-width + $width-inc * 2;
+  height: $mobile-height + $height-inc * 2;
+  margin-left: -1 * ($mobile-width / 2) - $width-inc;
+}
+
+.app-header {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: $mobile-width;
+  height: $mobile-bar-height;
+  margin: 0 auto;
+  z-index: 1000;
+  background-color: #333;
+
+  .app-logo {
+    display: block;
+    height: $mobile-bar-height - 25px;
+    margin: 10px auto 15px auto;
+  }
+
+  .app-menu-link {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: rgba(#fff, 0.7);
+    font-size: 30pt;
+  }
+
+  .app-search-link {
+    position: absolute;
+    top: 13px;
+    right: 10px;
+    color: rgba(#fff, 0.7);
+    font-size: 26pt;
+  }
+
+  .app-user-link {
+    position: absolute;
+    top: 13px;
+    right: 50px;
+    color: rgba(#fff, 0.7);
+    font-size: 26pt;
+  }
+}
+
+.body-background {
+  position: relative;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.body-wrapper {
+  position: relative;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba($colour-main-background, 0.7);
+}
+
+h1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  text-align: left;
+  color: #fff;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 30pt;
+  font-weight: 100;
+  color: #aaa;
+  margin: 0;
+  padding: 20px 30px;
+
+  .logo-ocio {
+    display: block;
+    width: 150px;
+  }
+
+  strong {
+    display: block;
+    position: relative;
+    text-align: left;
+    margin-top: 30px;
+    width: 30%;
+    font-size: 18pt;
+  }
+
+  .motto {
+    font-size: 28pt;
+    font-family: 'League Script', cursive;
+    color: #aaa;
+  }
+}
+
+.copyright {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  padding: 25px 0;
+  text-align: center;
+  color: #aaa;
+  font-size: 22pt;
+  font-weight: 300;
+}
+
+.content-wrapper {
+  width: 100%;
+  height: $mobile-height;
+  margin-top: -1 * ($mobile-height / 2);
+  position: absolute;
+  top: 50%;
+
+  .content {
+    width: $mobile-width;
+    height: $mobile-height;
+    margin: 0 auto;
+    background-color: #fff;
+    position: relative;
+    overflow-y: scroll;
+    position: relative;
+    padding-top: $mobile-bar-height;
+
+    .row {
+      width: 100%;
+      clear: both;
+
+      &.fix-height {
+        height: 130px;
+        overflow: hidden;
+      }
+    }
+
+    [class^="col-"] {
+      display: block;
+      float: left;
+      text-decoration: none;
+      padding: 15px;
+      position: relative;
+
+      &.no-padding {
+        padding: 0;
+      }
+    }
+
+    .col-25 {
+      width: 25%;
+    }
+
+    .col-50 {
+      width: 50%;
+    }
+
+    .col-100 {
+      width: 100%;
+    }
+
+    .column-icon {
+      font-weight: bolder;
+      width: 60px;
+      display: inline-block;
+      text-align: center;
+      vertical-align: middle;
+
+      i {
+        font-size: 40pt;
+      }
+    }
+
+    .column-text {
+      margin-top: 10px;
+      margin-left: 10px;
+      font-size: 14pt;
+      text-transform: lowercase;
+    }
+
+    .arrow {
+      vertical-align: middle;
+      position: absolute;
+      top: 11px;
+      right: 0;
+      font-size: 50pt;
+    }
+
+    .advert {
+      display: block;
+      background-color: #444;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+      color: #fff;
+      height: 130px;
+
+      &:nth-child(2) {
+        background-color: #555;
+      }
+    }
+
+    .go-back {
+      position: relative;
+      padding-left: 50px;
+
+      .arrow-back {
+        font-size: 80px;
+        position: absolute;
+        top: 50%;
+        left: -10px;
+        margin-top: -40px;
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
+.logo {
+  position: relative;
+  top: 12px;
+  opacity: 0.9;
+  width: 180px;
+  margin-right: 20px;
+}
+
+.list {
+  height: 100%;
+}
+
+/* Map */
+
+.map {
+  height: 250px;
+}

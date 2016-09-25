@@ -1,0 +1,9 @@
+<div class="ad-list-content bds-{{category}}">
+  {{#adverts}}
+    <div class="col-100 ad-wrapper ad-small">
+      <a href="javascript:void(0);" class="ad-content" data-link-detail="{{@root.category}}" data-link-id="{{id}}" style="background-image:url('{{data.image}}');">
+        {{data.content.small}}
+      </a>
+    </div>
+  {{/adverts}}
+</div>
