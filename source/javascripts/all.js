@@ -9,7 +9,7 @@
 //=require 'CarrifyClient/Renderer/Cache.js'
 //=require 'CarrifyClient/Renderer/Renderer.js'
 //=require 'CarrifyClient/DI.js'
-
+//=require 'CarrifyClient/Token.js'
 
 //=require 'ocio.js'
 //=require 'ready.js'
