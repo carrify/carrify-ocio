@@ -1,44 +1,47 @@
 var  CarrifyClient = {
   baseUrl: "//nube.carrify.tech/api/v1",
   securityToken: "e2769d6f-61ec-4da6-8bd0-fae1116f5d04", // I know this should not be public but...
-  locationId: 4,
+  locationId: 6,
   categories: {
-    'eat_drink': {
+    'ocio_eat_drink': {
       icon: 'restaurant',
       description: 'Comer y beber',
-      id: '55'
+      id: '59'
     },
-    'sport': {
+    'ocio_sport': {
       icon: 'directions_bike',
       description: 'Deporte',
-      id: '51'
+      id: '60'
     },
-    'culture': {
+    'ocio_culture': {
       icon: 'palette',
       description: 'Cultura',
-      id: '54'
+      id: '61'
     },
-    'fiesta': {
+    'ocio_fiesta': {
       icon: 'local_bar',
       description: 'Fiesta',
-      id: '53'
+      id: '62'
     },
-    'accommodation': {
+    'ocio_accommodation': {
       icon: 'local_hotel',
       description: 'Alojamiento',
-      id: '52'
+      id: '63'
     },
-    'cinema': {
+    'ocio_cinema': {
       icon: 'local_movies',
-      description: 'cine y teatro'
+      description: 'cine y teatro',
+      id: '64'
     },
-    'transport': {
+    'ocio_transport': {
       icon: 'directions_bus',
-      description: 'Transporte'
+      description: 'Transporte',
+      id: '65'
     },
-    'nature': {
+    'ocio_nature': {
       icon: 'nature',
-      description: 'Naturaleza'
+      description: 'Naturaleza',
+      id: '66'
     }
   }
 };

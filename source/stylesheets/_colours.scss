@@ -20,7 +20,7 @@
 
 @each $name, $colour in $col-colours {
   .bcs-#{$name} {
-    background-color: rgba(darken($colour, 50%), 0.4);
+    background-color: rgba(darken($colour, 20%), 0.4);
     color: lighten($colour, 30%);
   }
 }

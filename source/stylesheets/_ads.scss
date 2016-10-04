@@ -1,7 +1,15 @@
 @each $name, $colour in $col-colours {
   @for $i from 1 through 7 {
-    .ad-back-#{$name}-#{$i} {
-      background-image: url('../images/ads/#{$name}_#{$i}.jpg');
+    .back-#{$name} {
+      background-image: url('../images/backs/#{$name}.jpg');
+
+      .ad-wrapper {
+        background-color: rgba(darken($colour, 20%), 0.7);
+
+        &:nth-child(even) {
+          background-color: rgba(darken($colour, 34%), 0.7);
+        }
+      }
     }
   }
 }
@@ -9,7 +17,8 @@
 .ad-wrapper {
   position: relative;
   padding: 0;
-  height: 100px;
+  height: 120px;
+  background-color: rgba(50, 50, 50, 0.8);
 }
 
 .ad-content {
@@ -22,12 +31,27 @@
   height: 100%;
   color: #eee;
   text-decoration: none;
+
+  .title {
+    margin-top: 0;
+    font-size: 1.3em;
+    line-height: 1em;
+  }
+
+  .extract {
+    margin-bottom: 0;
+    color: #ddd;
+  }
 }
 
 @each $name, $colour in $col-colours {
   .list-#{$name} {
     .ad-content {
       background-color: rgba(desaturate(darken($colour, map-get($col-darken, $name)), 30%), 0.8);
+
+      &:nth-child(even) {
+        background-color: rgba(desaturate(darken($colour, map-get($col-darken, $name)), 20%), 0.8);
+      }
     }
   }
 }

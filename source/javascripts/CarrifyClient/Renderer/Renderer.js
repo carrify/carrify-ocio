@@ -113,7 +113,7 @@ CarrifyClient.Renderer.Renderer = (function() {
       background = "background-image:url('" + background + "');"
     }
 
-    return '<a href="javascript:void(0);" class="' + theClass + '" data-link-detail="' + category + '" data-link-id="' + id + '" style="' + background + '">' + content + '</a>';
+    return '<a href="javascript:void(0);" class="' + theClass + ' back-' + category + '" data-link-detail="' + category + '" data-link-id="' + id + '" style="' + background + '">' + content + '</a>';
   }
 
   function fillCarousel(category, template, adverts) {
@@ -215,13 +215,39 @@ CarrifyClient.Renderer.Renderer = (function() {
       set.runtime.currentTemplate = templateName;
     }
 
+    window.scrollTo(0, 0);
+
     if (callback) {
       callback();
     }
 
     if (CarrifyClient.Map) {
-      CarrifyClient.Map.init();
+      var category = data.category || "home";
+
+       CarrifyClient.Map.init(function() {
+         var storedPoints = CarrifyClient.Renderer.Cache.getAll(category, function (points) {
+           CarrifyClient.Map.loadPoints(points, openDetail);
+         });
+
+         if (storedPoints) {
+           CarrifyClient.Map.loadPoints(storedPoints, openDetail);
+         }
+       });
     }
+  }
+
+  function openDetail(category, id) {
+    var data = CarrifyClient.Renderer.Cache.getAd(id);
+    content = data.data ? JSON.parse(data.data) : {};
+
+    renderTemplate({
+      'template': 'detail',
+      'data': {
+        category: category,
+        content: content
+      },
+      'ignoreTemplate': true
+    });
   }
 
   function home(data) {
