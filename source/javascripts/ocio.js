@@ -112,7 +112,7 @@ CarrifyClient.Map = (function() {
     }
   ];
 
-  function init() {
+  function init(callback) {
     // Create the map with no initial style specified.
     // It therefore has default styling.
     var container = document.getElementById('map');
@@ -122,17 +122,19 @@ CarrifyClient.Map = (function() {
     }
 
     map = new google.maps.Map(container, {
-      center: {lat: 43.548489, lng: -5.663061},
-      zoom: 15,
-      mapTypeControl: false
+      center: {lat: 38.3429513, lng: -0.4808849},
+      zoom: 16,
+      mapTypeControl: false,
+      disableDefaultUI: true
     });
 
     map.setOptions({styles: style});
 
-    geolocate();
+    //geolocate(callback);
+    callback();
   }
 
-  function geolocate() {
+  function geolocate(callback) {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position) {
         var pos = {
@@ -141,6 +143,10 @@ CarrifyClient.Map = (function() {
         };
 
         map.setCenter(pos);
+
+        if (callback) {
+          callback(pos);
+        }
       }, function() {
         // Error
       });
@@ -149,7 +155,46 @@ CarrifyClient.Map = (function() {
     }
   }
 
+  function loadPoints(points, onClick) {
+    var length = points.length;
+
+    for (var i = 0; i < length; i++) {
+      var point = points[i];
+      var id = point.id;
+      var category = point.tags.length > 0 ? point.tags[0].name : '';
+
+      var image = {
+        url: '/images/pins/' + category + '.png',
+        size: new google.maps.Size(34, 49),
+        origin: new google.maps.Point(0, 0),
+        anchor: new google.maps.Point(0, 32)
+      };
+
+      var data = point.data;
+
+      if (typeof data === 'string' || data instanceof String) {
+        data = JSON.parse(data);
+      }
+
+      var marker = new google.maps.Marker({
+        position: {
+          lat: point.latitude,
+          lng: point.longitude
+        },
+        map: map,
+        icon: image,
+        title: data.description,
+        zIndex: 1
+      });
+
+      marker.addListener('click', function() {
+        onClick(category, id);
+      });
+    }
+  }
+
   return {
-    "init": init
+    "init": init,
+    "loadPoints": loadPoints
   };
 })();
