@@ -4,7 +4,7 @@
       background-image: url('../images/backs/#{$name}.jpg');
 
       .ad-wrapper {
-        background-color: rgba(darken($colour, 20%), 0.7);
+        background-color: rgba(darken($colour, 28%), 0.7);
 
         &:nth-child(even) {
           background-color: rgba(darken($colour, 34%), 0.7);

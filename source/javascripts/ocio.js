@@ -123,7 +123,7 @@ CarrifyClient.Map = (function() {
 
     map = new google.maps.Map(container, {
       center: {lat: 38.3429513, lng: -0.4808849},
-      zoom: 16,
+      zoom: 15,
       mapTypeControl: false,
       disableDefaultUI: true
     });
@@ -187,14 +187,26 @@ CarrifyClient.Map = (function() {
         zIndex: 1
       });
 
-      marker.addListener('click', function() {
-        onClick(category, id);
-      });
+      (function(category, id) {
+        marker.addListener('click', function() {
+          onClick(category, id);
+        });
+      })(category, id);
     }
+  }
+
+  function setCenter(latitude, longitude) {
+    var pos = {
+      lat: latitude,
+      lng: longitude
+    };
+
+    map.setCenter(pos);
   }
 
   return {
     "init": init,
-    "loadPoints": loadPoints
+    "loadPoints": loadPoints,
+    "setCenter": setCenter
   };
 })();

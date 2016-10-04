@@ -42,7 +42,8 @@ CarrifyClient.Renderer.Renderer = (function() {
           'template': 'detail',
           'data': {
             category: category,
-            content: content
+            content: content,
+            point: data
           },
           'ignoreTemplate': true
         });
@@ -222,18 +223,31 @@ CarrifyClient.Renderer.Renderer = (function() {
     }
 
     if (CarrifyClient.Map) {
-      var category = data.category || "home";
+      var category = templateName === "home" ? "home" : (data.category || "home");
 
        CarrifyClient.Map.init(function() {
-         var storedPoints = CarrifyClient.Renderer.Cache.getAll(category, function (points) {
-           CarrifyClient.Map.loadPoints(points, openDetail);
-         });
+         if (data.point) {
+           loadPoints([data.point]);
+         } else {
+           var storedPoints = CarrifyClient.Renderer.Cache.getAll(category, function (points) {
+             loadPoints(points);
+           });
 
-         if (storedPoints) {
-           CarrifyClient.Map.loadPoints(storedPoints, openDetail);
+           if (storedPoints) {
+             loadPoints(storedPoints);
+           }
          }
        });
     }
+  }
+
+  function loadPoints(points) {
+    if (!points || !points.length || points.length < 1) {
+      return;
+    }
+
+    CarrifyClient.Map.loadPoints(points, openDetail);
+    CarrifyClient.Map.setCenter(points[0].latitude, points[0].longitude);
   }
 
   function openDetail(category, id) {
@@ -244,7 +258,8 @@ CarrifyClient.Renderer.Renderer = (function() {
       'template': 'detail',
       'data': {
         category: category,
-        content: content
+        content: content,
+        point: data
       },
       'ignoreTemplate': true
     });
