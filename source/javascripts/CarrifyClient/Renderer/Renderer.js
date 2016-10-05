@@ -28,7 +28,12 @@ CarrifyClient.Renderer.Renderer = (function() {
 
         var id = this.getAttribute('data-link-id');
         var data = CarrifyClient.Renderer.Cache.getAd(id);
-        content = data.data ? JSON.parse(data.data) : {};
+        var content = {};
+        if ((typeof data.data) === "string") {
+          content = JSON.parse(data.data);
+        } else if ((typeof data.data) === "object") {
+          content = data.data;
+        }
 
         if (!category) {
           category = data.tags && data.tags.length > 0 ? data.tags[0].name : null;
@@ -256,7 +261,12 @@ CarrifyClient.Renderer.Renderer = (function() {
 
   function openDetail(category, id) {
     var data = CarrifyClient.Renderer.Cache.getAd(id);
-    content = data.data ? JSON.parse(data.data) : {};
+    var content = {};
+    if ((typeof data.data) === "string") {
+      content = JSON.parse(data.data);
+    } else if ((typeof data.data) === "object") {
+      content = data.data;
+    }
 
     renderTemplate({
       'template': 'detail',
