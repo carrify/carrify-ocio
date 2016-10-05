@@ -7,6 +7,11 @@ var  CarrifyClient = {
       description: 'Comer y beber',
       id: '59'
     },
+    'ocio_fiesta': {
+      icon: 'local_bar',
+      description: 'Fiesta',
+      id: '62'
+    },
     'ocio_sport': {
       icon: 'directions_bike',
       description: 'Deporte',
@@ -16,11 +21,6 @@ var  CarrifyClient = {
       icon: 'palette',
       description: 'Cultura',
       id: '61'
-    },
-    'ocio_fiesta': {
-      icon: 'local_bar',
-      description: 'Fiesta',
-      id: '62'
     },
     'ocio_accommodation': {
       icon: 'local_hotel',
