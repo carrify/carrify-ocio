@@ -3,6 +3,10 @@
     .back-#{$name} {
       background-image: url('../images/backs/#{$name}.jpg');
 
+      .ad-content-wrapper {
+        background-color: rgba(darken($colour, 35%), 0.7);
+      }
+
       .ad-wrapper {
         background-color: rgba(darken($colour, 28%), 0.7);
 
@@ -33,7 +37,6 @@
   text-decoration: none;
 
   .title {
-    margin-top: 0;
     font-size: 1.3em;
     line-height: 1em;
   }
@@ -150,4 +153,14 @@
     top: 0;
     left: 0;
   }
+}
+
+.ad-content-wrapper {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(#333, 0.8);
+  padding: 0 10px;
 }

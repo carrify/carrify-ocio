@@ -107,6 +107,10 @@ CarrifyClient.Renderer.Renderer = (function() {
     var content = data && data.content ? data.content[size] : "";
     category = category === 'home' ? '' : category
 
+    if (category === '' && advert.tags && advert.tags.length && advert.tags.length > 0) {
+      category = advert.tags[0].name;
+    }
+
     var background = data.image ? data.image : "";
     var id = advert.id;
 
@@ -114,7 +118,7 @@ CarrifyClient.Renderer.Renderer = (function() {
       background = "background-image:url('" + background + "');"
     }
 
-    return '<a href="javascript:void(0);" class="' + theClass + ' back-' + category + '" data-link-detail="' + category + '" data-link-id="' + id + '" style="' + background + '">' + content + '</a>';
+    return '<a href="javascript:void(0);" class="' + theClass + ' no-padding back-' + category + '" data-link-detail="' + category + '" data-link-id="' + id + '" style="' + background + '"><div class="ad-content-wrapper">' + content + '</div></a>';
   }
 
   function fillCarousel(category, template, adverts) {
