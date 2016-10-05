@@ -77,7 +77,7 @@ CarrifyClient.Renderer.Cache = (function() {
   }
 
   function getAdsByTag(tagId, tagKey) {
-    var clientId = set.client_id;
+    var clientId = getClientId();
 
     CarrifyClient.Recommender.ApiRecommender.getAdsByTag(clientId, tagId, function (ads) {
       store(tagKey, ads);
@@ -97,26 +97,34 @@ CarrifyClient.Renderer.Cache = (function() {
   }
 
   function loadClientId(callback) {
-    $.ajax({
-      url: CarrifyClient.baseUrl + "/client/new_client_id",
-      type: "POST",
-      data: {
-        token: CarrifyClient.securityToken
-      },
-      dataType: "json",
-      success: function (data) {
-        var id = data.id
-        set.client_id = id;
-
-        CarrifyClient.Renderer.Renderer.init();
-
-        callback(id);
-      }
-    });
+    // Don't request a new ClientID if it is already cached.
+    var afterClientIdFetched = function (client_id) {
+      CarrifyClient.Renderer.Renderer.init();
+      callback(client_id);
+    }
+    var client_id = null;
+    if (client_id = getClientId()) {
+      console.log("Using ClientID from localStorage");
+      afterClientIdFetched(client_id);
+    } else {
+      console.log("Requesting a new ClientID");
+      $.ajax({
+        url: CarrifyClient.baseUrl + "/client/new_client_id",
+        type: "POST",
+        data: {
+          token: CarrifyClient.securityToken
+        },
+        dataType: "json",
+        success: function (data) {
+          localStorage.setItem("CarrifyClient.client_id", data.id);
+          afterClientIdFetched(data.id);
+        }
+      });
+    }
   }
 
   function getClientId() {
-    return set.client_id;
+    return localStorage.getItem("CarrifyClient.client_id");
   }
 
   return {
