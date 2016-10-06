@@ -1,6 +1,8 @@
 var  CarrifyClient = {
   baseUrl: "//nube.carrify.tech/api/v1",
   locationId: 6,
+  latitude: -53.02530,
+  longitude: -57.68003,
   categories: {
     'ocio_eat_drink': {
       icon: 'restaurant',

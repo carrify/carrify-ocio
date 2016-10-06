@@ -130,7 +130,7 @@ CarrifyClient.Map = (function() {
 
     map.setOptions({styles: style});
 
-    //geolocate(callback);
+    geolocate(callback);
     callback();
   }
 
@@ -141,6 +141,9 @@ CarrifyClient.Map = (function() {
           lat: position.coords.latitude,
           lng: position.coords.longitude
         };
+
+        CarrifyClient.latitude = position.coords.latitude;
+        CarrifyClient.longitude = position.coords.longitude;
 
         map.setCenter(pos);
 
