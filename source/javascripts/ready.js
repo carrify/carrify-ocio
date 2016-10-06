@@ -4,10 +4,10 @@ $(function() {
   var renderer = CarrifyClient.DI.get("renderer");
   var cache = CarrifyClient.DI.get("cache");
 
-  var coords = CarrifyClient.DI.get("locator").getLocation();
+  //var coords = CarrifyClient.DI.get("locator").getLocation();
 
   function getInfo(clientId) {
-    recommender.getRecommendations(clientId, coords[0], coords[1], function (recommendations) {
+    recommender.getRecommendations(clientId, CarrifyClient.latitude, CarrifyClient.longitude, function (recommendations) {
       CarrifyClient.Renderer.Cache.store('home', recommendations);
     });
   }
