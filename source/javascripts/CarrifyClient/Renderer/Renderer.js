@@ -43,6 +43,7 @@ CarrifyClient.Renderer.Renderer = (function() {
           }
         }
 
+        // Render and reset scrolling
         renderTemplate({
           'template': 'detail',
           'data': {
@@ -52,6 +53,7 @@ CarrifyClient.Renderer.Renderer = (function() {
           },
           'ignoreTemplate': true
         });
+       $("#template_container").animate({ scrollTop: 0 }, "fast");
       },
       '[data-link-close]': function() {
         var templateFrom = this.getAttribute('data-template-from');
